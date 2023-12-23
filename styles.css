@@ -1,3 +1,4 @@
+/* Reset and base styles */
 *, *:before, *:after {
   box-sizing: border-box;
   padding: 0;
@@ -5,19 +6,19 @@
 }
 
 body {
-  background: #CCFBFE;
-  overflow: hidden;
-  font-family: sans-serif;
+  background: #F0F9FF; /* Lighter blue for a fresher look */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  padding: 20px; /* Added padding for breathing room */
 }
 
+/* Main container styles */
 .congress {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  max-width: 800px; /* Limit max width for larger screens */
+  margin: auto; /* Center the container */
+  height: 90vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  opacity: 0;
   transition: opacity 0.1s ease-in-out;
 }
 
@@ -25,10 +26,11 @@ body {
   opacity: 1;
 }
 
+/* Status icons (like and dislike) */
 .congress--status {
   position: absolute;
   top: 50%;
-  margin-top: -30px;
+  transform: translateY(-50%); /* Center vertically */
   z-index: 2;
   width: 100%;
   text-align: center;
@@ -36,107 +38,156 @@ body {
 }
 
 .congress--status i {
-  font-size: 100px;
+  font-size: 80px; /* Slightly smaller for a more refined look */
   opacity: 0;
-  transform: scale(0.3);
   transition: all 0.2s ease-in-out;
   position: absolute;
-  width: 100px;
-  margin-left: -50px;
+  left: 50%;
+  margin-left: -40px; /* Adjusted for new font size */
 }
 
-.congress_love .fa-heart {
-  opacity: 0.7;
-  transform: scale(1);
-}
-
+/* Love and nope animations */
+.congress_love .fa-heart,
 .congress_nope .fa-ban {
-  opacity: 0.7;
+  opacity: 0.9; /* Slightly more visible */
   transform: scale(1);
 }
 
+/* Card container */
 .congress--cards {
   flex-grow: 1;
-  padding-top: 40px;
-  text-align: center;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center; /* Vertically center in the available space */
   z-index: 1;
 }
 
+/* Individual cards */
 .congress--card {
-  display: inline-block;
-  width: 90vw;
-  max-width: 400px;
-  height: 70vh;
+  width: 85vw; /* Slightly smaller width */
+  max-width: 350px; /* Adjusted max width */
+  height: 60vh; /* Adjusted height */
   background: #FFFFFF;
-  padding-bottom: 40px;
-  border-radius: 8px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   overflow: hidden;
   position: absolute;
   will-change: transform;
   transition: all 0.3s ease-in-out;
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
   cursor: grab;
 }
 
 .moving.congress--card {
   transition: none;
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
   cursor: grabbing;
 }
 
+/* Card content */
 .congress--card img {
-  max-width: 100%;
-  pointer-events: none;
+  width: 100%; /* Ensure it covers the width */
+  height: 40%; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the area nicely */
+}
+
+.congress--card h3,
+.congress--card p {
+  padding: 0 20px; /* Increased padding for better readability */
 }
 
 .congress--card h3 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
-  pointer-events: none;
+  margin-top: 20px; /* Adjusted margin */
+  font-size: 24px; /* Slightly smaller for a more refined look */
+  color: #333333; /* Darker color for better contrast */
 }
 
 .congress--card p {
-  margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
-  pointer-events: none;
+  margin-top: 15px;
+  font-size: 18px; /* Adjusted size */
+  color: #555555; /* Slightly lighter for a subtle effect */
+  line-height: 1.6; /* Improved line spacing */
 }
 
+/* Action buttons (like and dislike) */
 .congress--buttons {
-  flex: 0 0 100px;
+  flex: 0 0 80px; /* Adjusted height */
   text-align: center;
-  padding-top: 20px;
 }
 
 .congress--buttons button {
   border-radius: 50%;
-  line-height: 60px;
-  width: 60px;
-  border: 0;
+  line-height: 50px; /* Smaller buttons */
+  width: 50px;
+  border: 2px solid #ddd; /* Subtle border */
   background: #FFFFFF;
-  display: inline-block;
-  margin: 0 8px;
+  margin: 0 10px; /* Increased spacing */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Consistent shadow with cards */
+  transition: all 0.2s ease; /* Smooth transition for interaction */
+}
+
+.congress--buttons button:hover {
+  transform: scale(1.1); /* Slight increase and shadow on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .congress--buttons button:focus {
-  outline: 0;
+  outline: none; /* Remove the default outline */
 }
 
 .congress--buttons i {
-  font-size: 32px;
-  vertical-align: middle;
+  font-size: 24px; /* Adjusted icon size */
 }
 
 .fa-heart {
-  color: #FFACE4;
+  color: #E91E63; /* More vibrant color for the heart */
 }
 
 .fa-ban {
-  color: #FF0000;
+  color: #F44336; /* Slightly different shade for ban */
+}
+
+/* Query Form Container */
+.query-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #F0F9FF; /* Light blue background for contrast */
+}
+
+/* Query Form Styling */
+#queryForm {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between elements */
+  background: #FFFFFF; /* White background */
+  padding: 10px;
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#userQuery {
+  flex-grow: 1; /* Allow input to grow */
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 18px; /* Larger font size for readability */
+  border-radius: 20px; /* Rounded corners */
+  color: #333; /* Darker text for contrast */
+}
+
+/* Submit Button Styling */
+#queryForm button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007BFF; /* Bootstrap primary color */
+  color: white;
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#queryForm button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
